@@ -8,7 +8,6 @@ class Disasters(db.Model):
   long = db.Column(db.Float)
   totalCheckIns = db.Column(db.Integer)
   totalInjured = db.Column(db.Integer)
-  totalChildren = db.Column(db.Integer)
 
 class Shelters(db.Model):
   id = db.Column(db.Integer, primary_key = True)
@@ -17,4 +16,3 @@ class Shelters(db.Model):
   long = db.Column(db.Float)
   totalCheckIns = db.Column(db.Integer)
   totalInjured = db.Column(db.Integer)
-  totalChildren = db.Column(db.Integer)

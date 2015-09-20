@@ -1,3 +1,4 @@
+from app import db
 from models import Disasters, Shelters
 
 class Session:
@@ -8,8 +9,7 @@ class Session:
       'lat': result.lat,
       'long': result.long,
       'totalCheckIns': result.totalCheckIns,
-      'totalInjured': result.totalInjured,
-      'totalChildren': result.totalChildren
+      'totalInjured': result.totalInjured
     }
 
   def getDisasters(self):
@@ -25,3 +25,10 @@ class Session:
     for result in results:
       shelters.append(self.formatLocation(result))
     return shelters
+
+  def updateDisaster(self, id, checkins, injured):
+    disaster = Disasters.query.get(id)
+    disaster.totalCheckIns = disaster.totalCheckIns + checkins
+    disaster.totalInjured = disaster.totalInjured + injured
+    db.session.commit()
+    return self.formatLocation(disaster)
