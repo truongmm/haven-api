@@ -14,3 +14,7 @@ def main():
 @app.route('/api/disasters', methods=['GET'])
 def get_disasters():
   return jsonify({'disasters': session.getDisasters()})
+
+@app.route('/api/shelters', methods=['GET'])
+def get_shelters():
+  return jsonify({'shelters': session.getShelters()})

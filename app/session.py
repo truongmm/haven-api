@@ -1,7 +1,7 @@
-from models import Disasters
+from models import Disasters, Shelters
 
 class Session:
-  def formatDisaster(self, result):
+  def formatLocation(self, result):
     return {
       'id': result.id,
       'name': result.name,
@@ -16,5 +16,12 @@ class Session:
     results = Disasters.query.all()
     disasters = []
     for result in results:
-      disasters.append(self.formatDisaster(result))
+      disasters.append(self.formatLocation(result))
     return disasters
+
+  def getShelters(self):
+    results = Shelters.query.all()
+    shelters = []
+    for result in results:
+      shelters.append(self.formatLocation(result))
+    return shelters

@@ -9,3 +9,12 @@ class Disasters(db.Model):
   totalCheckIns = db.Column(db.Integer)
   totalInjured = db.Column(db.Integer)
   totalChildren = db.Column(db.Integer)
+
+class Shelters(db.Model):
+  id = db.Column(db.Integer, primary_key = True)
+  name = db.Column(db.String(45))
+  lat = db.Column(db.Float)
+  long = db.Column(db.Float)
+  totalCheckIns = db.Column(db.Integer)
+  totalInjured = db.Column(db.Integer)
+  totalChildren = db.Column(db.Integer)
